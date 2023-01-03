@@ -1,21 +1,19 @@
-import Head from "next/head";
 import { motion } from "framer-motion";
+import { pageTransition } from "../animations";
 
 export default function Home() {
   return (
     <motion.div
-      initial={{ y: "100%" }}
-      animate={{ y: "0%" }}
-      transition={{ duration: 0.75, ease: "easeOut" }}
-      exit={{ opacity: 1 }}
-      className="text-gray-900 absolute top-0 left-0 w-full min-h-full bg-orange-100 px-16 lg:px-48"
+      {...pageTransition}
+      className="absolute left-0 right-0 top-0 min-h-screen bg-orange-100 px-4"
     >
-      <main>
-        <div className="my-96 p-1">
-          <h1 className="text-6xl text-center lg:text-right lg-text-9xl">
+      <main className="max-w-6xl mx-auto pb-12">
+        <div className="h-screen flex items-center">
+          <h1 className="w-full text-6xl text-center lg:text-right lg:text-7xl 2xl:text-8xl">
             Happy Pickle
           </h1>
         </div>
+
         <div className="flex justify-between">
           <div>
             <h2>Design</h2>
