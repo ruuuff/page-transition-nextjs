@@ -1,16 +1,30 @@
 import Link from "next/link";
+import { motion } from "framer-motion";
 
-export default function Navbar() {
+export default function Navbar({ currentPath }: { currentPath: string }) {
+  const paths = [
+    { name: "Home", url: "/" },
+    { name: "Contact", url: "/contact" },
+    { name: "About", url: "/about" },
+  ];
+
   return (
-    <nav className="text-2xl font-medium relative z-20">
-      <ul className="flex gap-12">
-        <li>
-          <Link href="/">Home</Link>
-        </li>
-        <li>
-          <Link href="/contact">Contact</Link>
-        </li>
-      </ul>
+    <nav className="text-2xl font-medium px-4 py-12 absolute left-0 right-0 top-0 z-20">
+      <div className="max-w-6xl mx-auto">
+        <ul className="flex gap-12">
+          {paths.map(({ name, url }) => (
+            <li key={name} className="relative">
+              <Link href={url}>{name}</Link>
+              {currentPath === url && (
+                <motion.div
+                  layoutId="underline"
+                  className="absolute bottom-0 h-[2px] bg-current w-full"
+                ></motion.div>
+              )}
+            </li>
+          ))}
+        </ul>
+      </div>
     </nav>
   );
 }
