@@ -1,13 +1,12 @@
 import PageTransition from "../components/PageTransition";
+import Title from "../components/Title";
 
 export default function Home() {
   return (
     <PageTransition bg="bg-orange-100">
       <main className="max-w-6xl mx-auto pb-12">
         <div className="h-screen flex items-center">
-          <h1 className="w-full text-6xl text-center lg:text-right lg:text-7xl 2xl:text-8xl">
-            Happy Pickle
-          </h1>
+          <Title>Happy Pickle</Title>
         </div>
 
         <div className="flex justify-between">
