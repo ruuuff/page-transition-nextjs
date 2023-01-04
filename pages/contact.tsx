@@ -9,7 +9,7 @@ export default function Contact() {
     <PageTransition bg={pathPalette["/contact"].bg}>
       <main className="max-w-6xl mx-auto pb-12">
         <div className="h-screen flex items-center">
-          <Title>Let's Talk</Title>
+          <Title>Let&apos;s Talk</Title>
         </div>
 
         <div className="flex gap-16 lg:gap-24 2xl:gap-36">
