@@ -13,20 +13,29 @@ const lato = Lato({
   variable: "--font-lato",
 });
 
-const textColors: { [key: string]: string } = {
-  default: "text-gray-900",
-  "/contact": "text-red-50",
-  "/about": "text-white",
+export const pathPalette: { [key: string]: { bg: string; text: string } } = {
+  default: {
+    bg: "bg-blue-500",
+    text: "text-white",
+  },
+  "/contact": {
+    bg: "bg-orange-300",
+    text: "text-black",
+  },
+  "/about": {
+    bg: "bg-lime-600",
+    text: "text-white",
+  },
 };
 
 export default function App({ Component, pageProps, router }: AppProps) {
   const pathname = router.pathname;
-  const color = textColors[pathname] || textColors.default;
+  const color = pathPalette[pathname]?.text || pathPalette.default.text;
   const [textColor, setTextColor] = useState(color);
 
   useEffect(() => {
     setTimeout(() => setTextColor(color), 400);
-  }, [pathname]);
+  }, [color]);
 
   console.log("render");
 
