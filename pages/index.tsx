@@ -1,12 +1,8 @@
-import { motion } from "framer-motion";
-import { pageTransition } from "../animations";
+import PageTransition from "../components/PageTransition";
 
 export default function Home() {
   return (
-    <motion.div
-      {...pageTransition}
-      className="absolute left-0 right-0 top-0 min-h-screen bg-orange-100 px-4"
-    >
+    <PageTransition bg="bg-orange-100">
       <main className="max-w-6xl mx-auto pb-12">
         <div className="h-screen flex items-center">
           <h1 className="w-full text-6xl text-center lg:text-right lg:text-7xl 2xl:text-8xl">
@@ -27,6 +23,6 @@ export default function Home() {
           </div>
         </div>
       </main>
-    </motion.div>
+    </PageTransition>
   );
 }

@@ -1,12 +1,9 @@
 import { motion } from "framer-motion";
-import { pageTransition } from "../animations";
+import PageTransition from "../components/PageTransition";
 
 export default function Abount() {
   return (
-    <motion.div
-      {...pageTransition}
-      className="absolute left-0 right-0 top-0 min-h-screen bg-blue-500 px-4"
-    >
+    <PageTransition bg="bg-blue-500">
       <main className="max-w-6xl mx-auto pb-12">
         <div className="h-screen flex items-center">
           <div className="w-full overflow-hidden">
@@ -21,6 +18,6 @@ export default function Abount() {
           </div>
         </div>
       </main>
-    </motion.div>
+    </PageTransition>
   );
 }

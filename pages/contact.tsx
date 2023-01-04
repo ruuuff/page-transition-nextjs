@@ -1,12 +1,10 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { pageTransition, container, item } from "../animations";
+import PageTransition from "../components/PageTransition";
+import { container, item } from "../animations";
 
 export default function Contact() {
   return (
-    <motion.div
-      {...pageTransition}
-      className="absolute left-0 right-0 top-0 min-h-screen bg-red-400 px-4"
-    >
+    <PageTransition bg="bg-red-400">
       <main className="max-w-6xl mx-auto pb-12">
         <div className="h-screen flex items-center">
           <div className="w-full overflow-hidden">
@@ -47,6 +45,6 @@ export default function Contact() {
           </div>
         </div>
       </main>
-    </motion.div>
+    </PageTransition>
   );
 }
