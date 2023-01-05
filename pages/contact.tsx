@@ -2,11 +2,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import PageTransition from "../components/PageTransition";
 import Title from "../components/Title";
 import { container, item } from "../animations";
-import { pathPalette } from "./_app";
 
-export default function Contact() {
+export default function Contact({ bg }: { bg: string }) {
   return (
-    <PageTransition bg={pathPalette["/contact"].bg}>
+    <PageTransition bg={bg}>
       <main className="max-w-6xl mx-auto pb-12">
         <div className="h-screen flex items-center">
           <Title>Let&apos;s Talk</Title>

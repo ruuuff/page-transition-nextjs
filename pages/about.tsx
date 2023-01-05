@@ -1,10 +1,9 @@
 import PageTransition from "../components/PageTransition";
 import Title from "../components/Title";
-import { pathPalette } from "./_app";
 
-export default function Abount() {
+export default function About({ bg }: { bg: string }) {
   return (
-    <PageTransition bg={pathPalette["/about"].bg}>
+    <PageTransition bg={bg}>
       <main className="max-w-6xl mx-auto pb-12">
         <div className="h-screen flex items-center">
           <Title>About Us</Title>
