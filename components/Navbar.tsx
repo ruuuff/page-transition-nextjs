@@ -1,17 +1,13 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 
-interface Props {
-  currentPath: string;
-}
-
 const paths = [
   { name: "Home", path: "/" },
   { name: "Contact", path: "/contact" },
   { name: "About", path: "/about" },
 ];
 
-export default function Navbar({ currentPath }: Props) {
+export default function Navbar({ currentPath }: { currentPath: string }) {
   return (
     <nav className="text-2xl font-medium px-4 py-12 absolute left-0 right-0 top-0 z-20">
       <div className="max-w-6xl mx-auto">
