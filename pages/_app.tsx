@@ -14,29 +14,34 @@ const lato = Lato({
   variable: "--font-lato",
 });
 
-export const pathPalette: { [key: string]: { bg: string; text: string } } = {
+const pathsPalette: {
+  [key: string]: {
+    bg?: string;
+    text?: string;
+  };
+} = {
   default: {
     bg: "bg-blue-500",
     text: "text-white",
   },
   "/contact": {
     bg: "bg-orange-300",
-    text: "text-black",
+    text: "text-gray-900",
   },
   "/about": {
     bg: "bg-lime-600",
-    text: "text-white",
   },
 };
 
 export default function App({ Component, pageProps, router }: AppProps) {
-  const pathname = router.pathname;
-  const color = pathPalette[pathname]?.text || pathPalette.default.text;
-  const [textColor, setTextColor] = useState(color);
+  const { pathname } = router;
+  const text = pathsPalette[pathname]?.text || pathsPalette.default.text;
+  const bg = pathsPalette[pathname]?.bg || pathsPalette.default.bg;
+  const [textColor, setTextColor] = useState(text);
 
   useEffect(() => {
-    setTimeout(() => setTextColor(color), 400);
-  }, [color]);
+    setTimeout(() => setTextColor(text), 390);
+  }, [pathname]);
 
   console.log("render");
 
@@ -55,7 +60,7 @@ export default function App({ Component, pageProps, router }: AppProps) {
       <Navbar currentPath={pathname} />
 
       <AnimatePresence initial={false}>
-        <Component key={pathname} {...pageProps} />
+        <Component key={pathname} bg={bg} {...pageProps} />
       </AnimatePresence>
     </div>
   );
